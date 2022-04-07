@@ -243,7 +243,7 @@ OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생
 ![image](https://user-images.githubusercontent.com/102270635/162138922-ef6bda95-eca6-4832-a2cf-57ca831641b3.png)
 
 
-* 헬스용품 주문취소, 배달취소
+* 헬스용품 주문취소, 배달취소 - (안됨)
 
 
 
@@ -380,13 +380,13 @@ spring:
 ![image](https://user-images.githubusercontent.com/102270635/162177703-cfb8469b-05f7-4e23-bf24-cf227c6e23ba.png)
 
 
-## AutoScale (HPA)
+## AutoScale (HPA) - 
 1. 컨터이너 리소스 CPU 200m 설정
 <img width="312" alt="스크린샷 2022-03-28 오후 9 43 28" src="https://user-images.githubusercontent.com/54835264/160518898-2e808e95-382e-41cb-a940-9a1fa9b5306f.png">
 
 2. HPA(Horizonal Pod Autoscale)를 cpu임계치=20%, 최대Pod수=3, 최저Pod수=1 로 설정
 ```
-kubectl autoscale deployment team4-store --cpu-percent=20 --min=1 --max=3
+kubectl autoscale deployment health-store --cpu-percent=20 --min=1 --max=3
 ```
 
 3. siege 컨테이너 배포 후 siege 컨테이너 내부에서 동시사용자 1명, 20초간 부하 테스트를 실행
