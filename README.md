@@ -158,7 +158,9 @@
 
 
 ## 완성된 1차 모형
-![image](https://user-images.githubusercontent.com/102270635/162119296-12b90d46-a9ab-417f-b84a-81b70b6c3c9f.png)
+![image](https://user-images.githubusercontent.com/102270635/162120039-278fa31e-676e-4d87-9921-95115a2b6226.png)
+
+
 
 > View Model 및 폴리시의 이동과 컨텍스트 매핑 추가
 
@@ -179,7 +181,7 @@
 
 
 ## 모델 수정
-![image](https://user-images.githubusercontent.com/35085704/160341656-3b89ce47-5c5d-44cf-8618-5399dbe7397a.png)
+![image](https://user-images.githubusercontent.com/102270635/162119296-12b90d46-a9ab-417f-b84a-81b70b6c3c9f.png)
 > 수정된 모델은 모든 요구사항을 커버함
 
 ## 비기능 요구사항에 대한 검증
