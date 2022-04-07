@@ -373,9 +373,9 @@ spring:
 
 # 운영
 ## Deploy
-1. AWS CodeBuild 를 통한 store, delivery 서비스 배포
-<img width="1338" alt="스크린샷 2022-03-29 오전 10 58 44" src="https://user-images.githubusercontent.com/54835264/160518739-c13292be-827d-4098-be67-6a05230f4c94.png">
-<img width="1338" alt="스크린샷 2022-03-29 오전 10 57 59" src="https://user-images.githubusercontent.com/54835264/160518779-b748c2c3-3369-4d24-96fc-84de25ba10d3.png">
+1. AWS CodeBuild 를 통한 product, delivery 서비스 배포
+
+![image](https://user-images.githubusercontent.com/102270635/162177703-cfb8469b-05f7-4e23-bf24-cf227c6e23ba.png)
 
 
 ## AutoScale (HPA)
