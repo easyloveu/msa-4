@@ -349,7 +349,7 @@ spring:
         - id: store
           uri: http://localhost:8082
           predicates:
-            - Path=/storeOrders/**, /menus/** /topBooks/**
+            - Path=/storeOrders/**, /menus/** 
         - id: delivery
           uri: http://localhost:8083
           predicates:
