@@ -274,17 +274,20 @@ OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생
 
 http localhost:8081/orders productId=1 quantity=3 customerId="sunghan.lee@hanwha.com" customerName="Sunghan" customerAddr="seoul"
 
-![image](https://user-images.githubusercontent.com/102270635/162142007-7d90b9ef-b374-43a2-9edf-870cc4231e89.png)
+![image](https://user-images.githubusercontent.com/102270635/162145649-6146327d-e95d-49db-b281-8dccceaa62f5.png)
+
 
 2. 기존 Monolith 구현체 제거, FeignClient 활성화
 
 ![image](https://user-images.githubusercontent.com/102270635/162142678-2aca9d6b-b731-4a1e-bf37-17fb2108cafc.png)
 
 
-4. 배송 확인
+3. 배송 확인
 
 http localhost:8082/deliveries
-![image](https://user-images.githubusercontent.com/102270635/160507815-d00e48e4-dcc1-47c6-acd3-750818c1047a.png)
+
+![image](https://user-images.githubusercontent.com/102270635/162145717-7a51f158-ff55-4792-87a3-247f273747f9.png)
+
 
 
 3. 부하 툴을 사용하여 주문 생성
