@@ -253,13 +253,17 @@ OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생
 
 
 1. 주문생성
+ 
 ![image](https://user-images.githubusercontent.com/102270635/162139537-9078c823-a336-4f0f-aede-85ccd473478e.png)
 
 2. 주문취소 
+
 ![image](https://user-images.githubusercontent.com/102270635/162139606-75f7bea9-b9db-4f9d-b6ce-f514b08e4870.png)
 
- 주문(Order)을 하면 동시에 배송(Delivery) 서비스 상태가 변경됨
- 주문취소를 수행하면 다시 배송(Delivery) 서비스 상태가 변경됨
+ * 주문(Order)을 하면 동시에 배송(Delivery) 서비스 상태가 변경됨(Kafka를 통해 확인)
+ 
+ * 주문취소를 수행하면 다시 배송(Delivery) 서비스 상태가 변경됨(Kafka를 통해 확인)
+ 
 ![image](https://user-images.githubusercontent.com/102270635/162139686-f462a5a9-2138-47bc-a10f-e26a53c02830.png)
 
 
@@ -268,9 +272,16 @@ OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생
 
 1. 주문 생성
 
-http localhost:8081/orders productId=1 quantity=3 customerId="sunghan.lee@hanwha.com" customerName="Lee" customerAddr="seoul"
+http localhost:8081/orders productId=1 quantity=3 customerId="sunghan.lee@hanwha.com" customerName="Sunghan" customerAddr="seoul"
 
-2. 배송 확인
+![image](https://user-images.githubusercontent.com/102270635/162142007-7d90b9ef-b374-43a2-9edf-870cc4231e89.png)
+
+2. 기존 Monolith 구현체 제거, FeignClient 활성화
+
+![image](https://user-images.githubusercontent.com/102270635/162142678-2aca9d6b-b731-4a1e-bf37-17fb2108cafc.png)
+
+
+4. 배송 확인
 
 http localhost:8082/deliveries
 ![image](https://user-images.githubusercontent.com/102270635/160507815-d00e48e4-dcc1-47c6-acd3-750818c1047a.png)
