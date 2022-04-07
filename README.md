@@ -238,25 +238,29 @@ OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생
 
 
 2. OrderStatus 조회시 주문상태/배달상태 등의 정보를 종합적으로 확인
+* 헬스용품 주문
 
-<헬스용품 주문>
 ![image](https://user-images.githubusercontent.com/102270635/162138922-ef6bda95-eca6-4832-a2cf-57ca831641b3.png)
 
-<헬스용품 주문취소, 배달취소>
+
+* 헬스용품 주문취소, 배달취소
 
 
 
 ## Correlation
 > 배송서비스에서 주문 삭제시 배송을 취소하는 작업을 위해 PolicyHandler 수정
-![image](https://user-images.githubusercontent.com/102270635/162133158-b59cb02f-9f31-4437-bfb8-1203073e8dc6.png)
+![image](https://user-images.githubusercontent.com/102270635/162139402-ecb10c5a-57ca-4ac4-b989-73c3c7a07846.png)
 
 
 1. 주문생성
-![image](https://user-images.githubusercontent.com/102270635/162132977-b84068f5-1cdf-4853-a65e-19d0ebd1ded6.png)
+![image](https://user-images.githubusercontent.com/102270635/162139537-9078c823-a336-4f0f-aede-85ccd473478e.png)
 
+2. 주문취소 
+![image](https://user-images.githubusercontent.com/102270635/162139606-75f7bea9-b9db-4f9d-b6ce-f514b08e4870.png)
 
-1. 주문(Order)을 하면 동시에 배송(Delivery) 서비스 상태가 변경됨
-2. 주문취소를 수행하면 다시 배송(Delivery) 서비스 상태가 변경됨
+ 주문(Order)을 하면 동시에 배송(Delivery) 서비스 상태가 변경됨
+ 주문취소를 수행하면 다시 배송(Delivery) 서비스 상태가 변경됨
+![image](https://user-images.githubusercontent.com/102270635/162139686-f462a5a9-2138-47bc-a10f-e26a53c02830.png)
 
 
 
