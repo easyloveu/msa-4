@@ -373,7 +373,9 @@ spring:
 
 # 운영
 ## Deploy
-1. AWS CodeBuild 를 통한 product, delivery 서비스 배포
+1. AWS CodeBuild 를 통한 health store, delivery 서비스 배포
+
+![image](https://user-images.githubusercontent.com/102270635/162180962-c76d4c56-c886-40df-b566-4e2bcedfc61f.png)
 
 ![image](https://user-images.githubusercontent.com/102270635/162177703-cfb8469b-05f7-4e23-bf24-cf227c6e23ba.png)
 
