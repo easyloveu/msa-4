@@ -231,44 +231,24 @@ http localhost:8081/orders productId=1 productName="Dumbbell" qty=3
 > 주문상태와 배송상태 등 총 Status에 대해서 확인 할 수 있도록 CQRS로 구현하였다.
 > 비동기식으로 처리되어 발행된 이벤트 기반 Kafka를 통해 수신/처리 되어 별도 OrderStatus table에서 관리한다.
 
-1. OrderStatus Entity
 
 ```
-@Entity
-public class OrderStatus {
-    // get from order event
-    @Id
-    private Long orderId;
-    private Long bookId;
-    private Integer qty;
-    private String bookName;
-    private String orderStatus;
 
-    // get from delivery event
-    private Long deliveryId;
-    private String deliveryStatus;
-
-}
-```
-
-2. OrderView 서비스의 PolicyHandler를 통해 구현
+1. OrderView 서비스의 PolicyHandler를 통해 구현
 OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생시, Pub/Sub 기반으로 별도 OrderStatus 테이블에 저장
-
-![image](https://user-images.githubusercontent.com/77971366/160516067-c82a0a47-1abf-439d-a5b1-509be67c363a.png)
-![image](https://user-images.githubusercontent.com/77971366/160516122-8c193862-edfe-48b4-a68c-704010833b4d.png)
-
-3. OrderStatus 조회시 주문상태/배달상태 등의 정보를 종합적으로 확인
-
-<책 주문>
-
-<img width="413" alt="HTTP1 1 201" src="https://user-images.githubusercontent.com/77971366/160517424-7a10b354-d459-4d32-ad88-a2c8d9bf2457.png">
-
-<img width="413" alt="HTTP1 1 201" src="https://user-images.githubusercontent.com/77971366/160516279-47f052c6-005a-4ea6-9027-822a2c5dc09a.png">
+![image](https://user-images.githubusercontent.com/102270635/162134408-81a9d950-8742-4685-b7d3-26397cd1a9d4.png)
+![image](https://user-images.githubusercontent.com/102270635/162134496-d9b8ce00-171c-4651-ab57-6d3454e0151d.png)
 
 
-<책 주문취소, 배달취소>
+2. OrderStatus 조회시 주문상태/배달상태 등의 정보를 종합적으로 확인
 
-<img width="413" alt="HTTP1 1 201" src="https://user-images.githubusercontent.com/77971366/160516331-16237f0c-3460-435a-bae0-d00160c5e8be.png">
+<헬스용품 주문>
+![image](https://user-images.githubusercontent.com/102270635/162134613-4429d3d1-62f3-4105-a167-52c16c4f30d7.png)
+![image](https://user-images.githubusercontent.com/102270635/162134745-98fdfa7d-efab-4c8c-8b17-99840541811b.png)
+
+
+<헬스용품 주문취소, 배달취소>
+
 
 
 ## Correlation
