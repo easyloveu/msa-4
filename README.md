@@ -290,15 +290,29 @@ http localhost:8082/deliveries
 
 
 
-3. 부하 툴을 사용하여 주문 생성
+4. 부하 툴을 사용하여 주문 생성
 
 siege -c2 -t10S  -v --content-type "application/json" 'http://localhost:8081/orders POST {"productId":2, "quantity":1}
 
+* 서킷브레이커 설정
+
+![image](https://user-images.githubusercontent.com/102270635/162146529-1bf2a7ea-abc8-4fcc-9003-a4dea2f83136.png)
+
+
+* Delivery.java에 딜레이 설정
+
+![image](https://user-images.githubusercontent.com/102270635/162146678-60d8b723-6a0a-4d7d-a768-e5fb7bd966dd.png)
+
+
 <부하 전>
-![image](https://user-images.githubusercontent.com/102270635/160507930-4c679192-cbf2-419b-a275-30496384bcd1.png)
+
+![image](https://user-images.githubusercontent.com/102270635/162146915-b31cc683-d8b6-4962-9226-7b378f2d5292.png)
+
 
 <부하 후>
-![image](https://user-images.githubusercontent.com/102270635/160507945-1201381f-8d3e-4787-8c26-7810eded63b0.png)
+
+![image](https://user-images.githubusercontent.com/102270635/162147333-531e33dc-6a5a-42ec-a67e-d3469637ac2a.png)
+
 
 
 4. fallback 처리를 하여 유연하게 대처
