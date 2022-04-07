@@ -1,5 +1,6 @@
 # 이성한 개인평가
-![image](https://user-images.githubusercontent.com/35085704/160336168-704f0b03-5ce5-4d24-84b1-41a363904cf5.png)
+![image](https://user-images.githubusercontent.com/102270635/162107476-f46a7466-4ae4-4809-b66b-9ff594fddca7.png)
+
 
 # 예제 - 헬스 용품 온라인 구매 시스템
 본 예제는 MSA/DDD/Event Storming/EDA 를 포괄하는 분석/설계/구현/운영 전단계를 커버하도록 구성한 예제입니다. 이는 클라우드 네이티브 애플리케이션의 개발에 요구되는 체크포인트들을 통과하기 위한 예시 답안을 포함합니다.
