@@ -113,23 +113,23 @@
 
 # 분석/설계
 ## AS-IS 조직 
-![image](https://user-images.githubusercontent.com/35085704/160333984-b35900c7-3066-4c96-846d-5ec0a0356496.png)
+![image](https://user-images.githubusercontent.com/102270635/162105049-8c180158-9d2d-4ba7-b9f2-7d0325dbd020.png)
 
 ## TO-BE 조직 (Vertically-Aligned)
-![image](https://user-images.githubusercontent.com/35085704/160335058-408f670e-46f3-4e57-8a77-c969ba126009.png)
+![image](https://user-images.githubusercontent.com/102270635/162107224-9b4e9248-f77f-4287-92de-8969e6d6fdc2.png)
 
 # Event Storming 결과
 > MSAEz 로 모델링한 이벤트 스토밍 결과: 
-> https://labs.msaez.io/#/storming/RWvnPeZmdwhH2VUyVhPmZ5pZgLw2/4e8fde73cfb97272d06117d1e84f642d
+> https://labs.msaez.io/#/storming/dTF4zdMrxveJgEJ6Yh8n3YazyJf2/66c443fb41f9b19754c89205ab14b055
 
 ## 이벤트 도출 
 ![image](https://user-images.githubusercontent.com/35085704/160337656-ec1eb8f5-7704-4599-87b7-a19bce853c18.png)
 
 ## 부적격 이벤트 탈락
-![image](https://user-images.githubusercontent.com/35085704/160337865-99e4a56d-1bde-403a-a66e-5c515a3f2622.png)
+![image](https://user-images.githubusercontent.com/102270635/162103631-df897e6f-a27e-40cd-8c0b-e1b5a5a9aeaf.png)
 
 > 과정중 도출된 잘못된 도메인 이벤트들을 걸러내는 작업을 수행함
-> 주문시>주문전달완료, 주문시>책선택완료 :  UI 의 이벤트이지, 업무적인 의미의 이벤트가 아니라서 제외
+> 주문시>주문전달완료, 주문시> 상품 선택완료 :  UI 의 이벤트이지, 업무적인 의미의 이벤트가 아니라서 제외
 
 ## 액터, 커맨드 부착하여 읽기 좋게 
 ![image](https://user-images.githubusercontent.com/35085704/160338111-a11cc01d-76e8-4f21-9aa2-77b9b2ad0d96.png) ![image](https://user-images.githubusercontent.com/35085704/160338158-bdae7868-0e33-4dfd-a011-a7d86fbd4ceb.png) ![image](https://user-images.githubusercontent.com/35085704/160338221-a6a333c2-52b0-4767-b39b-c9d99e6cf94e.png) 
