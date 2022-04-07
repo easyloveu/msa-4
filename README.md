@@ -231,9 +231,6 @@ http localhost:8081/orders productId=1 productName="Dumbbell" qty=3
 > 주문상태와 배송상태 등 총 Status에 대해서 확인 할 수 있도록 CQRS로 구현하였다.
 > 비동기식으로 처리되어 발행된 이벤트 기반 Kafka를 통해 수신/처리 되어 별도 OrderStatus table에서 관리한다.
 
-
-```
-
 1. OrderView 서비스의 PolicyHandler를 통해 구현
 OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생시, Pub/Sub 기반으로 별도 OrderStatus 테이블에 저장
 ![image](https://user-images.githubusercontent.com/102270635/162134408-81a9d950-8742-4685-b7d3-26397cd1a9d4.png)
