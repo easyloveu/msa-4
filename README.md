@@ -133,15 +133,19 @@
 > 주문시>주문전달완료, 주문시> 상품 선택완료 :  UI 의 이벤트이지, 업무적인 의미의 이벤트가 아니라서 제외
 
 ## 액터, 커맨드 부착하여 읽기 좋게 
-![image](https://user-images.githubusercontent.com/35085704/160338111-a11cc01d-76e8-4f21-9aa2-77b9b2ad0d96.png) ![image](https://user-images.githubusercontent.com/35085704/160338158-bdae7868-0e33-4dfd-a011-a7d86fbd4ceb.png) ![image](https://user-images.githubusercontent.com/35085704/160338221-a6a333c2-52b0-4767-b39b-c9d99e6cf94e.png) 
+![image](https://user-images.githubusercontent.com/102270635/162118276-3565bac3-20e5-4032-a875-2f87c6e5d418.png)![image](https://user-images.githubusercontent.com/102270635/162118481-c2d52fe8-8171-4ed2-a403-d3cf1f9d57ba.png)![image](https://user-images.githubusercontent.com/102270635/162118645-76e71f82-d1cb-4796-900c-0c1eb7930bad.png)
+
+
 
 ## 어그리게잇으로 묶기 
-![image](https://user-images.githubusercontent.com/35085704/160338265-4ef2675f-6c2e-45ae-8596-09eb0ff30de2.png) ![image](https://user-images.githubusercontent.com/35085704/160338278-dd654553-2f92-49ef-b98b-220d8587c3d3.png) ![image](https://user-images.githubusercontent.com/35085704/160338316-3c44bf02-c708-4671-b84b-52ed5bf6fb46.png)
+![image](https://user-images.githubusercontent.com/102270635/162118309-6c433c13-9fdc-45a4-beac-fdbe763384d2.png)![image](https://user-images.githubusercontent.com/102270635/162118551-072fe83d-1ed0-472d-824f-da690b67324e.png)![image](https://user-images.githubusercontent.com/102270635/162118712-1a1f2444-9137-4155-8dd0-b1e2bd817d64.png)
+
+
 
 > front의 Order, store 의 주문처리, payment 의 결제이력, delivery의 배송현황은 그와 연결된 command 와 event 들에 의하여 트랜잭션이 유지되어야 하는 단위로 그들 끼리 묶어줌
 
 ## 바운디드 컨텍스트로 묶기
-![image](https://user-images.githubusercontent.com/35085704/160338374-5d1fa9bc-5fa4-4362-84c0-952752bf487b.png) ![image](https://user-images.githubusercontent.com/35085704/160338394-a999f49b-de1a-4691-885f-9d24be03f597.png) 
+![image](https://user-images.githubusercontent.com/102270635/162118918-857d6508-deeb-4f16-bffc-685f1f469169.png)![image](https://user-images.githubusercontent.com/102270635/162118990-544fd267-6935-4f55-8e9b-5483606bd479.png)![image](https://user-images.githubusercontent.com/102270635/162119010-76279310-21df-4461-adc0-eeec9c0fb5c1.png)
 
 > 도메인 서열 분리 
 >  - Core Domain:  app(front), store : 없어서는 안될 핵심 서비스이며, 연간 Up-time SLA 수준을 99.999% 목표, 배포주기는 app 의 경우 1주일 1회 미만, store 의 경우 1개월 1회 미만
@@ -149,10 +153,12 @@
 >  - General Domain: pay : 결제서비스로 3rd Party 외부 서비스를 사용하는 것이 경쟁력이 높음 
 
 ## 폴리시 부착
-![image](https://user-images.githubusercontent.com/35085704/160339429-1760c79e-e2f5-4e5b-852f-1bf9d3a7299f.png)
+![image](https://user-images.githubusercontent.com/102270635/162119206-fe1ce057-38b3-43e5-a2f2-bdde1d22e7c1.png)![image](https://user-images.githubusercontent.com/102270635/162119222-9cf7abbc-da8f-4a93-8ff7-da6a4c48b801.png)![image](https://user-images.githubusercontent.com/102270635/162119238-5a503515-5df3-4838-a6b4-1aff5d4abf76.png)![image](https://user-images.githubusercontent.com/102270635/162119261-818e97ba-2198-4ea3-8972-752418ce08be.png)
+
+
 
 ## 완성된 1차 모형
-![image](https://user-images.githubusercontent.com/35085704/160339612-0078086d-2b7c-4a1a-81b6-a8cbe2da0e41.png)
+![image](https://user-images.githubusercontent.com/102270635/162119296-12b90d46-a9ab-417f-b84a-81b70b6c3c9f.png)
 
 > View Model 및 폴리시의 이동과 컨텍스트 매핑 추가
 
@@ -161,8 +167,8 @@
 ![image](https://user-images.githubusercontent.com/35085704/160340044-8344cc1a-a433-4b39-bbe6-dd2c1ea85bd5.png)
 
 > 기능적 요구사항
->  1. 서점 점주가 책을 등록/수정/삭제한다. (ok)
->  2. 구매자가 책을 선택하여 구매한다. (ok)
+>  1. 온라인 쇼핑몰 사장이 헬스용품을 등록/수정/삭제한다. (ok)
+>  2. 구매자가 헬스용품을 선택하여 구매한다. (ok)
 >  3. 주문과 동시에 결제가 진행된다. (ok)
 >  4. 결제가 되면 구매 내역 (Message)이 전달된다. (not yet)
 >  5. 판매자가 주문을 확인하여 배송을 시작한다. (ok)
