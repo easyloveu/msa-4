@@ -317,8 +317,15 @@ siege -c2 -t10S  -v --content-type "application/json" 'http://localhost:8081/ord
 
 4. fallback 처리를 하여 유연하게 대처
 
+* 폴백옵션 추가
+
+![image](https://user-images.githubusercontent.com/102270635/162147694-d6ccfe56-7ad0-4480-86f0-116613b28c44.png)
+
+
 <fallback 처리 후> 
-![image](https://user-images.githubusercontent.com/102270635/160507989-f5f3462d-ca00-4aa8-8310-73dce9b3d419.png)
+
+![image](https://user-images.githubusercontent.com/102270635/162148203-06725b63-4691-41c0-8ec1-3813ed02b3d8.png)
+
 
 
 ## API Gateway
