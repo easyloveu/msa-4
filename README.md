@@ -240,9 +240,7 @@ OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생
 2. OrderStatus 조회시 주문상태/배달상태 등의 정보를 종합적으로 확인
 
 <헬스용품 주문>
-![image](https://user-images.githubusercontent.com/102270635/162134613-4429d3d1-62f3-4105-a167-52c16c4f30d7.png)
-![image](https://user-images.githubusercontent.com/102270635/162134745-98fdfa7d-efab-4c8c-8b17-99840541811b.png)
-
+![image](https://user-images.githubusercontent.com/102270635/162138922-ef6bda95-eca6-4832-a2cf-57ca831641b3.png)
 
 <헬스용품 주문취소, 배달취소>
 
