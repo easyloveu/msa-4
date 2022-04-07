@@ -219,16 +219,12 @@ mvn spring-boot:run
 ## Saga 
 
 1. order 서비스의 이벤트 Publish
-http localhost:8081/orders productId=1 productName="MSA Book" qty=3
+http localhost:8081/orders productId=1 productName="Dumbbell" qty=3
 
 2. OrderApplication에서 Run 실행 후 kafka Consumer에서 이벤트 확인
-
-![image](https://user-images.githubusercontent.com/102270635/160508329-a9fb56ef-f5cb-4213-aaad-abb944889c7c.png)
-
-![image](https://user-images.githubusercontent.com/102270635/160508343-4d4dff99-49a0-4e09-82cf-42f458cd6d02.png)
-
-![image](https://user-images.githubusercontent.com/102270635/160508354-68279a2a-6799-4778-aa30-262fb7747a7d.png)
-
+![image](https://user-images.githubusercontent.com/102270635/162133699-ac740f6b-9caa-458e-8317-cb530a9feff0.png)
+![image](https://user-images.githubusercontent.com/102270635/162133815-32e0ea1b-2d5d-4085-b055-6b80bdbca9f6.png)
+![image](https://user-images.githubusercontent.com/102270635/162133843-fb0212e6-c51e-43f7-b692-8b6b23273414.png)
 
 
 ## CQRS
