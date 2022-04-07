@@ -166,7 +166,7 @@
 
 
 ## 1차 완성본에 대한 기능적/비기능적 요구사항을 커버하는지 검증
-![image](https://user-images.githubusercontent.com/35085704/160340044-8344cc1a-a433-4b39-bbe6-dd2c1ea85bd5.png)
+![image](https://user-images.githubusercontent.com/102270635/162133989-45a34fdb-f151-47d2-a62e-549bf6947c2f.png)
 
 > 기능적 요구사항
 >  1. 온라인 쇼핑몰 사장이 헬스용품을 등록/수정/삭제한다. (ok)
