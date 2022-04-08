@@ -438,10 +438,11 @@ kubectl apply -f https://raw.githubusercontent.com/acmexii/demo/master/edu/order
 
 kubectl expose deploy order --type=LoadBalancer --port=8080
 
-EXTERNAL-IP으로 Livenss Prove 설정 및 확인
-# Liveness Probe 확인
+* EXTERNAL-IP으로 Livenss Prove 설정 및 확인
+
+-- Liveness Probe 확인
 http 218.236.22.35:8080/actuator/health
-# Liveness Probe Fail 설정 및 확인
+-- Liveness Probe Fail 설정 및 확인
 http put 218.236.22.35:8080/actuator/down
 http 218.236.22.35:8080/actuator/health
 
@@ -473,4 +474,6 @@ kubectl apply -f https://raw.githubusercontent.com/acmexii/demo/master/edu/deliv
 ![image](https://user-images.githubusercontent.com/102270635/162346880-b4f140b5-5fc5-4df2-8049-ec103d79f516.png)
 
 
+
+## Volumes
 
