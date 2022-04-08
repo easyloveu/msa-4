@@ -381,15 +381,15 @@ spring:
 
 
 ## AutoScale (HPA) - 
-1. 컨터이너 리소스 CPU 200m 설정
-<img width="312" alt="스크린샷 2022-03-28 오후 9 43 28" src="https://user-images.githubusercontent.com/54835264/160518898-2e808e95-382e-41cb-a940-9a1fa9b5306f.png">
-
-2. HPA(Horizonal Pod Autoscale)를 cpu임계치=20%, 최대Pod수=3, 최저Pod수=1 로 설정
+1. HPA(Horizonal Pod Autoscale)를 cpu임계치=50%, 최대Pod수=10, 최저Pod수=1 로 설정
 ```
-kubectl autoscale deployment health-store --cpu-percent=20 --min=1 --max=3
+kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
 ```
 
-3. siege 컨테이너 배포 후 siege 컨테이너 내부에서 동시사용자 1명, 20초간 부하 테스트를 실행
+![image](https://user-images.githubusercontent.com/102270635/162341481-72b43dcf-7488-4412-a2fb-2189120d4549.png)
+
+
+3. siege 컨테이너 배포 후 siege 컨테이너 부하 테스트를 실행
 ```
 kubectl apply -f - <<EOF
 apiVersion: v1
@@ -405,16 +405,13 @@ EOF
 
 ```
 kubectl exec -it siege -- /bin/bash
-siege -c1 -t10S -v http://team4-store:8080/profile/products
+siege -c30 -t30S -v http://php-apache 
 ```
 
-<img width="526" alt="스크린샷 2022-03-28 오후 9 41 25" src="https://user-images.githubusercontent.com/54835264/160518943-1d828460-eabc-443e-9dd8-4ac8eb4bc97b.png">
+![image](https://user-images.githubusercontent.com/102270635/162343371-4f2fe5fa-eaf4-47de-983b-ca085449312e.png)
 
-4. CPU 리소스가 20%를 넘어서자 HPA 이벤트가 발생하고 Replicas=3 으로 AutoScale 실행 
-<img width="631" alt="스크린샷 2022-03-28 오후 9 33 54" src="https://user-images.githubusercontent.com/54835264/160518979-07cd3bc4-7453-4d68-8e96-914daf8ad46b.png">
-
-5. 쿨타임 이후 다시 3->1 로 Replica Set 변경
-<img width="631" alt="스크린샷 2022-03-28 오후 9 40 24" src="https://user-images.githubusercontent.com/54835264/160518959-acbdc790-ac32-45d3-9846-61fe35efffd5.png">
+cpu임계치=20%, 최대Pod수=3, 최저Pod수=1 로 재설정 및 테스트 수행
+kubectl autoscale deployment php-apache --cpu-percent=20 --min=1 --max=3
 
 
 ## Self-healing (Liveness Probe)
