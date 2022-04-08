@@ -243,9 +243,6 @@ OrderPlaced, DeliveryStarted, OrderCancelled, DeliveryCancelled 이벤트 발생
 ![image](https://user-images.githubusercontent.com/102270635/162138922-ef6bda95-eca6-4832-a2cf-57ca831641b3.png)
 
 
-* 헬스용품 주문취소, 배달취소 - (안됨)
-
-
 
 ## Correlation
 > 배송서비스에서 주문 삭제시 배송을 취소하는 작업을 위해 PolicyHandler 수정
