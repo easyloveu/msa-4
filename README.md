@@ -416,6 +416,9 @@ kubectl autoscale deployment php-apache --cpu-percent=20 --min=1 --max=3
 
 ## Self-healing (Liveness Probe)
 1. Liveness Probe 설정 후 재배포 실행
+
+kubectl apply -f exec-liveness.yaml
+
 ```
 livenessProbe:
   httpGet:
@@ -427,37 +430,47 @@ livenessProbe:
   failureThreshold: 5
 ```
 
-2. Spring-Boot 설정문제로 재배포 된 컨테이너 내부 오류 발생
-<img width="1157" alt="스크린샷 2022-03-28 오후 10 35 15" src="https://user-images.githubusercontent.com/54835264/160519238-625d5083-d332-4a09-83ce-0f392fdfb847.png">
-<img width="1143" alt="스크린샷 2022-03-28 오후 10 32 21" src="https://user-images.githubusercontent.com/54835264/160519188-d2a85efc-e847-41da-81d8-30da0b4ef9a4.png">
+* Liveness Probe가 적용된 주문 마이크로서비스를 배포
 
-3. Liveness Probe 실패로 컨테이너 재시작 이벤트 발생
-<img width="669" alt="스크린샷 2022-03-28 오후 10 33 29" src="https://user-images.githubusercontent.com/54835264/160519225-4a0b47f6-91c1-4edb-a643-7ef9ba0e9ba5.png">
+kubectl apply -f https://raw.githubusercontent.com/acmexii/demo/master/edu/order-liveness.yaml
+
+* Order 서비스 생성
+
+kubectl expose deploy order --type=LoadBalancer --port=8080
+
+EXTERNAL-IP으로 Livenss Prove 설정 및 확인
+# Liveness Probe 확인
+http 218.236.22.35:8080/actuator/health
+# Liveness Probe Fail 설정 및 확인
+http put 218.236.22.35:8080/actuator/down
+http 218.236.22.35:8080/actuator/health
+
+![image](https://user-images.githubusercontent.com/102270635/162345188-003af6bf-1a95-46fa-80ce-21d3db8cc578.png)
+
+* Probe Fail에 따른 쿠버네티스 동작 확인
+
+kubectl describe pod/health-order-f4f9849d8-d6n67
+
+![image](https://user-images.githubusercontent.com/102270635/162345410-5c026d4c-5b37-4a6d-8d93-364fff77f711.png)
+
 
 ## Zero-Downtime Deploy (Readiness Probe)
-1. HPA 제거
-```
-kubectl delete hpa team4-store
-```
 
-2. Readiness Probe 미설정 배포 시 siege 테스트 결과가 Availability 69.94% 임을 확인
-<img width="379" alt="스크린샷 2022-03-28 오후 9 53 24" src="https://user-images.githubusercontent.com/54835264/160519270-2d68512b-2b95-40a7-aaf1-88347542b249.png">
+1. 배송 마이크로서비스를 배포
+
+kubectl apply -f https://raw.githubusercontent.com/acmexii/demo/master/edu/delivery-rediness-v1.yaml
+kubectl expose deploy delivery --port=8080
+
+2. Readiness Probe 설정 후 재배포 실행
+
+kubectl apply -f https://raw.githubusercontent.com/acmexii/demo/master/edu/delivery-no-rediness-v2.yaml
+
+![image](https://user-images.githubusercontent.com/102270635/162347448-7b6d8ec5-5a88-41a8-8097-1f8b3fddb074.png)
 
 
-3. Readiness Probe 설정 후 재배포 실행
-```
-readinessProbe:
-  httpGet:
-    path: /actuator/health
-    port: 8080
-  initialDelaySeconds: 10
-  timeoutSeconds: 2
-  periodSeconds: 5
-  failureThreshold: 10
-```
+3. Readiness Probe 설정 이후 배포 시 siege 테스트 결과가 Availability 100% 임을 확인
 
-4. Readiness Probe 설정 이후 배포 시 siege 테스트 결과가 Availability 100% 임을 확인
-<img width="981" alt="스크린샷 2022-03-28 오후 10 00 03" src="https://user-images.githubusercontent.com/54835264/160519277-39c82daa-3a59-4794-8670-eae92f55a328.png">
+![image](https://user-images.githubusercontent.com/102270635/162346880-b4f140b5-5fc5-4df2-8049-ec103d79f516.png)
 
 
 
