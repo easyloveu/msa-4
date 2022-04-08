@@ -475,5 +475,46 @@ kubectl apply -f https://raw.githubusercontent.com/acmexii/demo/master/edu/deliv
 
 
 
-## Volumes
+## ConfigMapig
+
+* ConfigMap 생성
+ 
+ kubectl create configmap health-store  --from-literal=language=java
+ 
+ * ConfigMAp 확인
+
+![image](https://user-images.githubusercontent.com/102270635/162364584-33066226-2ca2-4f7b-9141-d7efc7e3e93d.png)
+
+* configmap을 통한 마이크로서비스 배포(AWS)
+
+ - 도커이미지 빌드 & Push
+
+docker build -t 979050235289.dkr.ecr.ca-central-1.amazonaws.com/cm-sandbox:v1 .
+
+![image](https://user-images.githubusercontent.com/102270635/162364919-b85f748f-fff4-43ca-b76c-2141a61568d8.png)
+
+
+aws ecr create-repository --repository-name cm-sandbox --region ca-central-1
+
+![image](https://user-images.githubusercontent.com/102270635/162364953-a67d0272-2cd2-42b1-95b3-9d768da518b1.png)
+
+
+docker push  979050235289.dkr.ecr.ca-central-1.amazonaws.com/cm-sandbox:v1
+
+![image](https://user-images.githubusercontent.com/102270635/162365334-8f8553c2-1258-4d37-a23f-9ee3d3ef0822.png)
+
+컨테이너 및 서비스 생성
+
+kubectl create -f cm-deployment.yaml
+kubectl create -f cm-service.yaml
+
+* Secret 생성 및 설정
+
+kubectl create secret generic my-password --from-literal=password=mysqlpassword
+
+![image](https://user-images.githubusercontent.com/102270635/162366495-ac7dec67-e3f8-4341-8e1b-39cf066cc8d1.png)
+
+
+
+
 
